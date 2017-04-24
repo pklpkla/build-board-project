@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title></title>
+        <title><%= title %></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--<link rel="stylesheet" type="text/css" href="style.css">-->
@@ -55,7 +55,12 @@
                     <td>0</td>
                 </tr>
             </tbody>
-        </table>  
+        </table>
+        
+        <!--<button type="button" class="btn btn-info">글쓰기</button>-->
+          
+        <a class="btn btn-lg btn-info" href="/topic/add" role="button">글쓰기</a>
+        
         <nav class="page">
             <ul class="pagination">
                 <li>
@@ -75,6 +80,7 @@
                 </li>
             </ul>
             </nav>
+            
         <!-- 부가적인 테마 -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
