@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title><%= title %></title>
+        <title>boad</title>
+        <style>
+            page {
+                display: flex !important;
+                justify-content: center !important;
+			}
+        </style>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--<link rel="stylesheet" type="text/css" href="style.css">-->
-        <link href="css/style.css" rel="stylesheet">
+        <!--<link href="css/style.css" rel="stylesheet">-->
         <!-- 합쳐지고 최소화된 최신 CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     </head>
@@ -30,30 +36,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>165</td>
-                    <td>입문자를 위한 안내</td>
-                    <td>admin</td>
-                    <td>2013.06.21</td>
-                    <td>2</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>165</td>
-                    <td>웹사이트를 만들 때 유용한 도구들</td>
-                    <td>admin</td>
-                    <td>2013.06.21</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>165</td>
-                    <td>워드프레스 게시판 사용법1</td>
-                    <td>admin</td>
-                    <td>2013.06.21</td>
-                    <td>2</td>
-                    <td>0</td>
-                </tr>
+                <% for (var i = 0; i < blogs.length; i++) { %>
+                    <!--var blogs = blogs[i].title %>-->
+                    <tr>
+                        <td><%= i %></td>
+                        <td><%= blogs[i].title %> </td>
+                        <td>admin</td>
+                        <td>2013.06.21</td>
+                        <td>2</td>
+                        <td>0</td>
+                    </tr>
+                <% } %>
             </tbody>
         </table>
         
