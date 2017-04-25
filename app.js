@@ -37,15 +37,23 @@ app.get('/topic/add',(req, res)=> {
 });
 
 // 리스트 표현
-app.get('/', function(req, res) {
-  // var Blog = new Blog();
+app.get('/',(req, res)=> {
   Blog.find((err, blogs)=>{
     if(err) {
       res.send(err);
     }
-    // res.json(blogs);
-    console.log(blogs[4]);
     res.render('index', {blogs : blogs});
+  })
+});
+
+// 리스트 선택
+app.get('/topic/:id',(req, res)=> {
+  var id = req.params.id;
+  Blog.findById(id, (err, blogs)=>{
+    if(err) {
+      res.send(err);
+    }
+    res.json(blogs.description);
   })
 });
 
