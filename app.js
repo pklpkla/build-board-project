@@ -35,6 +35,7 @@ app.post('/topic/add',(req, res)=> {
   blog.save((err)=>{
     if(err) return handleError(err);
     console.log('save ok!!!');
+    res.redirect('/');
   })
 });
 
@@ -61,6 +62,17 @@ app.get('/topic/:id',(req, res)=> {
     }
     // res.json(blogs.description);
     res.render('detail', { blogs:blogs })
+  })
+});
+
+app.get('/topic/:id/delete',(req, res)=> {
+  var id = req.params.id;
+  Blog.findByIdAndRemove(id, (err, blogs)=>{
+    if(err) {
+      res.send(err);
+    }
+    // res.json({ message: 'Blog removed from the blog'});
+    res.redirect('/');
   })
 });
 
