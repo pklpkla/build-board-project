@@ -17,20 +17,20 @@ var mongoose = require('mongoose');
 var Blog = require('./models/blog');
 mongoose.connect('mongodb://localhost/test');
 
-// 모듈로 분리한 라우팅 파일 불러오기
-var router = require('./routes/route_Basic');
-
 // 익스프레스 객체 생성
 var app = express();
-
-//라우팅 정보를 읽어들여 라우팅 설정
-app.use('/api', router);
 
 // for parsing application/json
 app.use(bodyParser.json());
 
 // for parsing application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// 모듈로 분리한 라우팅 파일 불러오기
+var router = require('./routes/route_Basic');
+
+//라우팅 정보를 읽어들여 라우팅 설정
+app.use('/api', router);
 
 //===== 뷰 엔진 설정 =====//
 app.set('view engine', 'ejs');

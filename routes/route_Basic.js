@@ -3,9 +3,7 @@ var bodyParser = require('body-parser');
 var Blog = require('./../models/blog');
 var Router = express.Router();
 
-Router.route('/topic/add').post((req, res)=> {
-  console.log(req.body.title);
-
+Router.route('/topic/add/add').post((req, res)=> {
   var title = req.body.title;
   var description = req.body.description;
 
@@ -17,7 +15,7 @@ Router.route('/topic/add').post((req, res)=> {
   blog.save((err)=>{
     if(err) return handleError(err);
     console.log('save ok!!!');
-    res.redirect('/');
+    res.redirect('/api');
   })
 });
 
@@ -37,6 +35,7 @@ Router.route('/').get((req, res)=> {
 
 // 리스트 선택
 Router.route('/topic/:id').get((req, res)=> {
+  console.log(req.params.id);
   var id = req.params.id;
   Blog.findById(id, (err, blogs)=>{
     if(err) {
