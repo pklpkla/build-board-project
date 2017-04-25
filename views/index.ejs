@@ -40,7 +40,7 @@
                         <td><%= i %></td>
                         <td><a href='/api/topic/<%= blogs[i]._id %>'> <%= blogs[i].title %> </a></td>
                         <td>admin</td>
-                        <td>2013.06.21</td>
+                        <td><%= blogs[i].createdAt.toLocaleString() %></td>
                         <td>2</td>
                         <td>0</td>
                     </tr>

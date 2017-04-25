@@ -3,6 +3,17 @@ var bodyParser = require('body-parser');
 var Blog = require('./../models/blog');
 var Router = express.Router();
 
+// // create a comment
+// Router.post('/:id/comments', (req, res)=>{
+//     var id = req.params.id;
+//     var newComment = req.body.comment;
+//     newComment.author = req.body.author;
+//     blog.update({_id:id}, {$push:{comments:newComment}}, (err,blog)=>{
+//         if(err) return res.json({success:false, message:err});
+//         res.redirect('');
+//     })
+// });
+
 Router.route('/topic/add/add').post((req, res)=> {
   var title = req.body.title;
   var description = req.body.description;
