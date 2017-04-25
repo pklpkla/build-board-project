@@ -22,10 +22,16 @@ app.set('views', './views');
 var router = express.Router();
 
 app.post('/topic/add',(req, res)=> {
-  // console.log(req.body.title);
+  console.log(req.body.title);
+
   var title = req.body.title;
   var description = req.body.description;
-  var blog = new blog({title:title, description:description});
+
+  var blog = new Blog();
+
+  blog.title = title;
+  blog.description = description;
+  
   blog.save((err)=>{
     if(err) return handleError(err);
     console.log('save ok!!!');
@@ -53,7 +59,8 @@ app.get('/topic/:id',(req, res)=> {
     if(err) {
       res.send(err);
     }
-    res.json(blogs.description);
+    // res.json(blogs.description);
+    res.render('detail', { blogs:blogs })
   })
 });
 
